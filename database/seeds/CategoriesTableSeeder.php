@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 
 class CategoriesTableSeeder extends Seeder
 {
-
+    //TODO: Переделать миграцию
     /**
      * Seed the application's database.
      *

@@ -11,6 +11,7 @@ class ProductsUsersTableSeeder extends Seeder
      */
     public function run()
     {
+        //TODO: Переделать миграцию
         for ($d = 0; $d < 40; $d++) {
             $categories = new \App\Model\ProductsUsers();
             $categories->users_id = rand(1, 30);
