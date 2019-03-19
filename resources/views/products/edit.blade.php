@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create products</div>
+                    <div class="panel-heading">edit products</div>
                     <div>
                         @if($errors)
                         <ul>
@@ -20,25 +20,25 @@
                         </ul>
                         @endif
                     </div>
-                    <form method="POST" action="{{route('products.store')}}" >
+                    <form method="POST" action="{{route('products.update',['id'=>$products->id])}}" >
                         {{ csrf_field() }}
                         <table class="table table-bordered">
                             <tr>
                                 <td>Name</td>
                                 <td>
-                                    <input type="text" name="name"/>
+                                    <input type="text" name="name" value="{{$products->name}}"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>prise</td>
                                 <td>
-                                    <input type="number" name="prise"/>
+                                    <input type="number" name="prise" value="{{$products->prise}}"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>categories</td>
                                 <td>
-                                    <input type="number" name="categories_id"/>
+                                    <input type="number" name="categories_id" value="{{$products->categories_id}}"/>
                                 </td>
                             </tr>
                             <tr>

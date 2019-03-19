@@ -21,7 +21,13 @@ Route::get('/', function () {
 //Route::get('/update','UserController@update');
 
 Auth::routes();
+//'middleware' => ['auth']]
+Route::group(['prefix' => 'products'],  function () {
+    Route::get('/', 'ProductsController@index')->name('products');
+    Route::get('/create', 'ProductsController@create')->name('products.create');
+    Route::post('/store', 'ProductsController@store')->name('products.store');
+    Route::get('/edit/{products}', 'ProductsController@edit')->name('products.edit');
+    Route::post('/update/{id}', 'ProductsController@update')->name('products.update');
+    Route::get('/destroy/{id}', 'ProductsController@destroy')->name('products.destroy');
+});
 
-Route::get('/products', 'ProductsController@index');
-Route::get('/products/create', 'ProductsController@create');
-Route::post('/products/store', 'ProductsController@store');
