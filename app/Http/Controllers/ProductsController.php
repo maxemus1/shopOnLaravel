@@ -18,6 +18,35 @@ use App\Http\Requests;
 class ProductsController extends Controller
 {
 
+    public function show(Products $products)
+    {
+        $categories_id = Categories::find($products->categories_id);
+        return view('products.single', ['products' => $products], ['categories_id' => $categories_id]);
+    }
+
+    public function search(Request $request)
+    {
+        $categories_id = Categories::find($request->categories_id);
+        //   $products = Products::class
+        //    ->where('name','LIKE','%'.$request->get('search').'%')
+        //    ->get();
+
+        $users = Products::where('name', 'LIKE', '%' . $request->get('search') . '%')
+            ->get();
+
+        dd($users);
+
+    }
+
+
+
+
+
+
+
+
+
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
