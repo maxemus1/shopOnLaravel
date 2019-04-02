@@ -13,7 +13,6 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-
 Auth::routes();
 
 //Route::get('/home', 'HomeController@home')->name('home');
@@ -34,5 +33,3 @@ Route::group(['prefix' => 'products'], function () {
     Route::post('/update/{id}', 'ProductsController@update')->name('products.update');
     Route::get('/destroy/{id}', 'ProductsController@destroy')->name('products.destroy');
 });
-
-
