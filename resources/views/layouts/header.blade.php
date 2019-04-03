@@ -3,9 +3,10 @@
     <nav class="main-navigation">
         <ul class="nav-list">
             <li class="nav-list__item"><a href="/" class="nav-list__item__link">Главная</a></li>
-            <li class="nav-list__item"><a href="{{route('cart.step1')}}" class="nav-list__item__link">Мои заказы</a></li>
-            <li class="nav-list__item"><a href="#" class="nav-list__item__link">Новости</a></li>
-            <li class="nav-list__item"><a href="#" class="nav-list__item__link">О компании</a></li>
+            <li class="nav-list__item"><a href="{{route('cart.step1')}}" class="nav-list__item__link">Мои заказы</a>
+            </li>
+            <li class="nav-list__item"><a href="{{route('news.index')}}" class="nav-list__item__link">Новости</a></li>
+            <li class="nav-list__item"><a href="{{route('about_company')}}" class="nav-list__item__link">О компании</a></li>
         </ul>
     </nav>
     <div class="header-contact">
@@ -24,11 +25,11 @@
 
         <div class="authorization-block">
             @if(!Auth::id())
-            <a href="{{route('register')}}" class="authorization-block__link">Регистрация</a>
-            <a href="{{route('login')}}" class="authorization-block__link">Войти</a>
-                @else
+                <a href="{{route('register')}}" class="authorization-block__link">Регистрация</a>
+                <a href="{{route('login')}}" class="authorization-block__link">Войти</a>
+            @else
                 <a href="{{route('cart.step1')}}" class="authorization-block__link">Личный кабинет</a>
-                @endif
+            @endif
         </div>
     </div>
 </header>
