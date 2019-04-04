@@ -15,7 +15,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 Route::get('/products/{products}', 'ProductsController@show')->name('products.single');
-Route::get('/news', 'NewsController@index')->name('news.index')->middleware('auth.basic');
+Route::get('/news', 'NewsController@index')->name('news.index');
 Route::get('/news/{id}', 'NewsController@show')->name('news.show');
 Route::get('/categories/{id}', 'CategoriesController@show')->name('categories.show');
 Route::get('/cart', 'CartController@step')->name('cart.step');
@@ -27,7 +27,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 
-//Временное
+//Временное будет использоваться для админки
 Route::group(['prefix' => 'products'], function () {
     Route::get('/', 'ProductsController@index')->name('products');
     Route::get('/create', 'ProductsController@create')->name('products.create');

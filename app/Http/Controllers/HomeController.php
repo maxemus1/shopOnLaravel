@@ -17,7 +17,6 @@ class HomeController extends Controller
         // $this->middleware('auth');
     }
 
-
     /**
      * Show the application dashboard.
      *
@@ -29,6 +28,9 @@ class HomeController extends Controller
         return view('home', ['products' => $products]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function aboutСompany()
     {
         return view('layouts.about_company');

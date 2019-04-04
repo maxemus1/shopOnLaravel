@@ -18,6 +18,10 @@ use App\Http\Requests;
 class ProductsController extends Controller
 {
 
+    /**
+     * @param Products $products
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(Products $products)
     {
         $categories_id = Categories::find($products->categories_id);
@@ -25,28 +29,18 @@ class ProductsController extends Controller
         return view('products.single', ['products' => $products], ['categories_id' => $categories_id]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function search(Request $request)
     {
-        $categories_id = Categories::find($request->categories_id);
-        //   $products = Products::class
-        //    ->where('name','LIKE','%'.$request->get('search').'%')
-        //    ->get();
-
-        $users = Products::where('name', 'LIKE', '%' . $request->get('search') . '%')
-            ->get();
-
-        dd($users);
-
+        $products = Products::where('name', 'LIKE', '%' . $request->get('search') . '%')
+            ->paginate(12);
+        return view('home', ['products' => $products]);
     }
 
-
-
-
-
-
-
-
-
+    // временное будет использовано для одминки
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

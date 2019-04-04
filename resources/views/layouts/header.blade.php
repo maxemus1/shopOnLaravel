@@ -6,7 +6,8 @@
             <li class="nav-list__item"><a href="{{route('cart.step')}}" class="nav-list__item__link">Мои заказы</a>
             </li>
             <li class="nav-list__item"><a href="{{route('news.index')}}" class="nav-list__item__link">Новости</a></li>
-            <li class="nav-list__item"><a href="{{route('about_company')}}" class="nav-list__item__link">О компании</a></li>
+            <li class="nav-list__item"><a href="{{route('about_company')}}" class="nav-list__item__link">О компании</a>
+            </li>
         </ul>
     </nav>
     <div class="header-contact">
@@ -15,7 +16,8 @@
     <div class="header-container">
         <div class="payment-container">
             <div class="payment-basket__status">
-                <div class="payment-basket__status__icon-block"><a href="{{route('cart.step')}}" class="payment-basket__status__icon-block__link"><i
+                <div class="payment-basket__status__icon-block"><a href="{{route('cart.step')}}"
+                                                                   class="payment-basket__status__icon-block__link"><i
                                 class="fa fa-shopping-basket"></i></a></div>
                 <div class="payment-basket__status__basket"><span
                             class="payment-basket__status__basket-value">{{$userCartCount}}</span><span

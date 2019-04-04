@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function step()
     {
         if (Auth()->check()) {
@@ -19,6 +22,10 @@ class CartController extends Controller
         }
     }
 
+    /**
+     * @param Products $products
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function addToCart(Products $products)
     {
         if (Auth()->check()) {

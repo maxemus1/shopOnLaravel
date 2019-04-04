@@ -17,7 +17,7 @@
             @include('layouts.sidebar.categories')
             @include('layouts.sidebar.news')
         </div>
-      @yield('content')
+        @yield('content')
     </div>
     @include('layouts.footer')
 </div>
