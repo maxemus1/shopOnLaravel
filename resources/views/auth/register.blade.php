@@ -61,6 +61,14 @@
                             </div>
                         </div>
 
+                        <div class="order__form-row">
+                            <label class="order__radio order__radio_checkbox">
+                                <input class="order__radio-elem" name="admin" type="checkbox">
+                                <div class="order__radio-fake"></div>
+                                <div class="order__radio-title">Администратор</div>
+                            </label>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

@@ -15,14 +15,14 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 Route::get('/products/{products}', 'ProductsController@show')->name('products.single');
-Route::get('/news', 'NewsController@index')->name('news.index');
+Route::get('/news', 'NewsController@index')->name('news.index')->middleware('auth.basic');
 Route::get('/news/{id}', 'NewsController@show')->name('news.show');
 Route::get('/categories/{id}', 'CategoriesController@show')->name('categories.show');
-Route::get('/cart', 'CartController@step1')->name('cart.step1');
+Route::get('/cart', 'CartController@step')->name('cart.step');
 Route::get('/cart/add/{products}', 'CartController@addToCart')->name('cart.addToCart');
-Route::get('/cart/confirm', 'CartController@step2')->name('cart.step2');
 Route::post('/search', 'ProductsController@search')->name('products.search');
-Route::get('about_company', 'HomeController@aboutСompany')->name('about_company');
+Route::get('/about_company', 'HomeController@aboutСompany')->name('about_company');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 

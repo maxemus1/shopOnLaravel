@@ -5,18 +5,18 @@
             <div class="random-product-container__content">
                 <div class="item-product">
                     <div class="item-product__title-product"><a
-                                href="{{route('products.single',['products'=>$randomProducts])}}"
-                                class="item-product__title-product__link">{{$randomProducts->name}}</a></div>
+                                href="{{route('products.single',['products'=>$randomProductsOne])}}"
+                                class="item-product__title-product__link">{{$randomProductsOne->name}}</a></div>
                     <div class="item-product__thumbnail"><a
-                                href="{{route('products.single',['products'=>$randomProducts])}}"
+                                href="{{route('products.single',['products'=>$randomProductsOne])}}"
                                 class="item-product__thumbnail__link"><img
-                                    src="{{$randomProducts->getPicture()}}" alt="Preview-image"
+                                    src="{{$randomProductsOne->getPicture()}}" alt="Preview-image"
                                     class="item-product__thumbnail__link__img"></a></div>
                     <div class="item-product__description">
-                        <div class="item-product__description__products-price"><span class="products-price">{{$randomProducts->prise}} руб</span>
+                        <div class="item-product__description__products-price"><span class="products-price">{{$randomProductsOne->prise}} руб</span>
                         </div>
                         <div class="item-product__description__btn-block"><a
-                                    href="{{route('products.single',['products'=>$randomProducts])}}"
+                                    href="{{route('products.single',['products'=>$randomProductsOne])}}"
                                     class="btn btn-blue">Купить</a>
                         </div>
                     </div>

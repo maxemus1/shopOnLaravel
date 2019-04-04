@@ -10,8 +10,7 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $products = Products::where('categories_id', $id)
-            ->paginate(3);
+            ->paginate(12);
         return view('home', ['products' => $products]);
-
     }
 }

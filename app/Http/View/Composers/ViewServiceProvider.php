@@ -21,11 +21,15 @@ class ViewServiceProvider extends ServiceProvider
 
         View::composer('*', function ($view) {
             $categories = Categories::all();
-            $randomProducts = Products::orderBy(\DB::raw('RAND()'))
+            $randomProductsOne = Products::orderBy(\DB::raw('RAND()'))
                 ->first();
+            $randomProducts = Products::orderBy(\DB::raw('RAND()'))
+                ->limit(3)
+                ->get();
             $lastNews = News::orderBy('id', 'desc')->limit(3)->get();
             $userCartCount = Cart::getUserCartCount();
-                $view->with('categories', $categories);
+            $view->with('categories', $categories);
+            $view->with('randomProductsOne', $randomProductsOne);
             $view->with('randomProducts', $randomProducts);
             $view->with('lastNews', $lastNews);
             $view->with('userCartCount', $userCartCount);

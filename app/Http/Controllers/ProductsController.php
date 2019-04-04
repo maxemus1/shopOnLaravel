@@ -21,6 +21,7 @@ class ProductsController extends Controller
     public function show(Products $products)
     {
         $categories_id = Categories::find($products->categories_id);
+
         return view('products.single', ['products' => $products], ['categories_id' => $categories_id]);
     }
 

@@ -8,23 +8,24 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function step1()
+    public function step()
     {
-        $cart = Cart::getUserCart();
-
-        return view('cart.step1', ['cart' => $cart]);
-    }
-
-    public function step2()
-    {
-        $cart = Cart::getUserCart();
-        $sum = $cart->sum('prise');
-        return view('cart.step2', ['cart' => $cart,'sum'=>$sum]);
+        if (Auth()->check()) {
+            $cart = Cart::getUserCart();
+            $sum = $cart->sum('prise');
+            return view('cart.step', ['cart' => $cart, 'sum' => $sum]);
+        } else {
+            return redirect('login');
+        }
     }
 
     public function addToCart(Products $products)
     {
-        Cart::storeProducts($products);
-        return redirect()->route('cart.step1');
+        if (Auth()->check()) {
+            Cart::storeProducts($products);
+            return redirect()->route('cart.step');
+        } else {
+            return redirect('login');
+        }
     }
 }
