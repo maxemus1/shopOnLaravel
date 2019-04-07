@@ -17,7 +17,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Model\Products::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'prise' => $faker->randomDigit,
+        'prise' => rand(99,1200),
         'picture' => $faker->imageUrl(),
         'description' => $faker->text,
         'categories_id' => rand(1,5),
