@@ -62,17 +62,19 @@
                     @foreach($randomProducts as $product)
                         <div class="products-columns__item">
                             <div class="products-columns__item__title-product">
-                                <a href="#" class="products-columns__item__title-product__link">{{$product->name}}</a>
+                                <a href="{{route('products.single',['products'=>$product])}}"
+                                   class="products-columns__item__title-product__link">{{$product->name}}</a>
                             </div>
                             <div class="products-columns__item__thumbnail">
-                                <a href="#" class="products-columns__item__thumbnail__link">
+                                <a href="{{route('products.single',['products'=>$product])}}"
+                                   class="products-columns__item__thumbnail__link">
                                     <img src="{{$product->getPicture()}}" alt="Preview-image"
                                          class="products-columns__item__thumbnail__img">
                                 </a>
                             </div>
                             <div class="products-columns__item__description">
                                 <span class="products-price">{{$product->prise}}руб.</span>
-                                <a href="{{route('products.single',['products'=>$product])}}" class="btn btn-blue">Купить
+                                <a href="{{route('cart.addToCart',['products'=>$product])}}" class="btn btn-blue">Купить
                                 </a>
                             </div>
                         </div>

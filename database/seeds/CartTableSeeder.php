@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
-class ProductsTableSeeder extends Seeder
+class CartTableSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      *
@@ -12,6 +11,6 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Model\Products::class, 30)->create();
+        factory(App\Model\Cart::class)->times(30)->create();
     }
 }

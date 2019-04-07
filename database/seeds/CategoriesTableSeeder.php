@@ -18,19 +18,26 @@ class CategoriesTableSeeder extends Seeder
             [
                 'name' => 'Action',
                 'description' => 'Экшен игры'
-            ],
+            ]
+        );
+        \App\Model\Categories::firstOrCreate(
+
             [
                 'name' => 'RPG',
                 'description' => 'Рулевые игры'
-            ],
+            ]
+        );
+        \App\Model\Categories::firstOrCreate(
             [
                 'name' => 'Квесты',
                 'description' => 'Квесты'
-            ],
+            ]);
+        \App\Model\Categories::firstOrCreate(
             [
                 'name' => 'Онлайн-игры',
                 'description' => 'Онлайн-игры'
-            ],
+            ]);
+        \App\Model\Categories::firstOrCreate(
             [
                 'name' => 'Стратегии',
                 'description' => 'Стратегии'

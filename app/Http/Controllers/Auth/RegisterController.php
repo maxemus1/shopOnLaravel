@@ -62,11 +62,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $data['admin'] = ($data['admin'] == 'checkbox') ? $data['admin'] = '0' : $data['admin'] = '1';
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'admin' => $data['admin'],
             'password' => bcrypt($data['password']),
         ]);
     }
