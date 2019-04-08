@@ -38,6 +38,12 @@
                             </div>
                             <div class="cart-product__item__product-price"><span
                                         class="product-price__value">{{$cartItem->products->prise}} руб.</span></div>
+                            <div
+                                    class="cart-product__item__product-del-icon">
+                                <a href="{{route('cart.destroy',['id'=>$cartItem->id])}}" class="logotype-link">
+                                    <img src="/img/del-icon.png">
+                                </a>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -81,6 +87,7 @@
                     @endforeach
                 </div>
             </div>
+
         </div>
     </div>
 @endsection
