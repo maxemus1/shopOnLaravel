@@ -26,14 +26,3 @@ Route::get('/about_company', 'HomeController@aboutСompany')->name('about_compan
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/mail', 'CartController@email')->name('mail');
 
-
-
-//Временное будет использоваться для админки
-Route::group(['prefix' => 'products'], function () {
-    Route::get('/', 'ProductsController@index')->name('products');
-    Route::get('/create', 'ProductsController@create')->name('products.create');
-    Route::post('/store', 'ProductsController@store')->name('products.store');
-    Route::get('/edit/{products}', 'ProductsController@edit')->name('products.edit');
-    Route::post('/update/{id}', 'ProductsController@update')->name('products.update');
-    Route::get('/destroy/{id}', 'ProductsController@destroy')->name('products.destroy');
-});
