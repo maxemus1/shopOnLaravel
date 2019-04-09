@@ -12,15 +12,19 @@ class mailClass extends Mailable
     use Queueable, SerializesModels;
 
     public $cart;
+    public $sum;
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($cart)
+    public function __construct($cart, $sum, $user)
     {
         $this->cart = $cart;
+        $this->sum = $sum;
+        $this->user = $user;
     }
 
     /**
@@ -31,8 +35,8 @@ class mailClass extends Mailable
     public function build()
     {
         return $this->from('sender@example.com')
-            ->view('test')
-            ->text('test')
-            ->subject('Новый Заказ');
+            ->view('mail.mail')
+            ->text('mail.mail')
+            ->subject('Поступил новый заказ');
     }
 }

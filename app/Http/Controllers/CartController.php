@@ -50,15 +50,19 @@ class CartController extends Controller
         return redirect()->route('cart.step');
     }
 
+
     /**
-     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function email()
     {
         $cart = Cart::getUserCart();
-        // $sum = $cart->sum('prise');
+        $sum = $cart->sum('prise');
         $id = Auth::id();
         $user = User::find($id);
-        Mail::to('loftschool91@mail.ru', $user->name)->send(new mailClass($cart));
+        Mail::to('loftschool91@mail.ru')->send(new mailClass($cart, $sum, $user));
+        Cart::where('user_id', $id)
+            ->delete();
+        return redirect()->route('home');
     }
 }

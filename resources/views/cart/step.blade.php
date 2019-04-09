@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="content-footer__container">
-                <div class="btn-buy-wrap"><a href="#" class="btn-buy-wrap__btn-link">Перейти к оплате</a></div>
+                <div class="btn-buy-wrap"><a href="{{route('mail')}}" class="btn-buy-wrap__btn-link">Перейти к оплате</a></div>
             </div>
         </div>
         <div class="content-bottom">
