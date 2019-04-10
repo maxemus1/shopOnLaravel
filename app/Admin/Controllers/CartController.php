@@ -83,7 +83,6 @@ class CartController extends Controller
 
         $grid->id('Id');
         $grid->products_id('Products id');
-        $grid->order_id('Order id');
         $grid->user_id('User id');
         $grid->prise('Prise');
         $grid->created_at('Created at');
@@ -104,7 +103,6 @@ class CartController extends Controller
 
         $show->id('Id');
         $show->products_id('Products id');
-        $show->order_id('Order id');
         $show->user_id('User id');
         $show->prise('Prise');
         $show->created_at('Created at');
@@ -123,7 +121,6 @@ class CartController extends Controller
         $form = new Form(new Cart);
 
         $form->number('products_id', 'Products id');
-        $form->number('order_id', 'Order id');
         $form->number('user_id', 'User id');
         $form->number('prise', 'Prise');
 

@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('prise');
             $table->string('picture');
             $table->string('description');
-            $table->integer('categories_id')->unsigned();;
+            $table->integer('categories_id')->unsigned();
             $table->timestamps();
         });
 

@@ -17,6 +17,14 @@ class Products extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class,  'products_id');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function categories()

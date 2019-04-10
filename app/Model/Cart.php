@@ -14,7 +14,6 @@ class Cart extends Model
     public static function getUserCart()
     {
         return self::where('user_id', Auth::id())
-            ->where('order_id', null)
             ->get();
     }
 
@@ -24,7 +23,6 @@ class Cart extends Model
     public static function getUserCartCount()
     {
         return self::where('user_id', Auth::id())
-            ->where('order_id', null)
             ->count();
     }
 
@@ -36,7 +34,6 @@ class Cart extends Model
     {
         $cart = new Cart;
         $cart->products_id = $products->id;
-        $cart->order_id = null;
         $cart->prise = $products->prise;
         $cart->user_id = Auth::id();
         $cart->save();
@@ -51,5 +48,12 @@ class Cart extends Model
         return $this->hasOne(Products::class, 'id', 'products_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 
 }
