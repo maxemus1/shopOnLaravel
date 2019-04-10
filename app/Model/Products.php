@@ -16,4 +16,12 @@ class Products extends Model
         return $this->picture ?? '';
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function categories()
+    {
+        return $this->hasOne(Categories::class, 'id', 'categories_id');
+    }
+
 }

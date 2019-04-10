@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Services\EmailSend;
 use App\Model\Cart;
 use App\Model\Products;
 use Illuminate\Http\Request;
@@ -54,7 +54,7 @@ class CartController extends Controller
      */
     public function email()
     {
-        $email = new Cart();
+        $email = new EmailSend();
         $email->email();
         return redirect()->route('home');
     }

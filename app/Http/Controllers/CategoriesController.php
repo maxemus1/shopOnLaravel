@@ -17,4 +17,6 @@ class CategoriesController extends Controller
             ->paginate(12);
         return view('home', ['products' => $products]);
     }
+
+
 }
