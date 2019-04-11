@@ -15,13 +15,9 @@ class CartController extends Controller
      */
     public function step()
     {
-        if (Auth()->check()) {
-            $cart = Cart::getUserCart();
-            $sum = $cart->sum('prise');
-            return view('cart.step', ['cart' => $cart, 'sum' => $sum]);
-        } else {
-            return redirect('login');
-        }
+        $cart = Cart::getUserCart();
+        $sum = $cart->sum('prise');
+        return view('cart.step', ['cart' => $cart, 'sum' => $sum]);
     }
 
     /**
@@ -30,12 +26,8 @@ class CartController extends Controller
      */
     public function addToCart(Products $products)
     {
-        if (Auth()->check()) {
-            Cart::storeProducts($products);
-            return redirect()->route('cart.step');
-        } else {
-            return redirect('login');
-        }
+        Cart::storeProducts($products);
+        return redirect()->route('cart.step');
     }
 
     /**

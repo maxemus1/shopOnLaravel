@@ -10,7 +10,10 @@ namespace App\Services;
 
 use Mail;
 use App\Model\User;
+use App\Model\Cart;
+use App\Model\EmailOrders;
 use App\Mail\mailClass;
+use Illuminate\Support\Facades\Auth;
 
 class EmailSend
 {
@@ -23,7 +26,12 @@ class EmailSend
         $sum = $cart->sum('prise');
         $id = Auth::id();
         $user = User::find($id);
-        Mail::to('loftschool91@mail.ru')->send(new mailClass($cart, $sum, $user));
+        $email = EmailOrders::all()->email;
+        foreach ($email as $key => $value) {
+            dd($value[$key]);
+            Mail::to('loftschool91@mail.ru')->send(new mailClass($cart, $sum, $user));
+        }
+
         Cart::where('user_id', $id)
             ->delete();
     }
