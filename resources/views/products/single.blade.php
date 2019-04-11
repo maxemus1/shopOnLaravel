@@ -12,7 +12,7 @@
             <div class="content-head__container">
                 <div class="content-head__title-wrap">
                     <div class="content-head__title-wrap__title bcg-title">{{$products->name}} в
-                        разделе {{$categories_id->name}}</div>
+                        разделе {{$categories_id}}</div>
                 </div>
                 @include('layouts.search')
             </div>

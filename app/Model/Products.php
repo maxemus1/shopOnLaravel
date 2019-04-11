@@ -32,4 +32,11 @@ class Products extends Model
         return $this->hasOne(Categories::class, 'id', 'categories_id');
     }
 
+    public function categoriesName($id)
+    {
+$categories= Products::find($id)->categories_id;
+
+return Categories::find($categories)->name;
+    }
+
 }

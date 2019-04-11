@@ -24,8 +24,8 @@ class ProductsController extends Controller
      */
     public function show(Products $products)
     {
-        dd( $products->categories());
-        return view('products.single', ['products' => $products], ['categories_id' => $products->categories()]);
+
+        return view('products.single', ['products' => $products], ['categories_id' =>  $products->categoriesName($products->categories_id)]);
     }
 
     /**
