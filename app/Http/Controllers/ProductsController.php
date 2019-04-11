@@ -24,7 +24,8 @@ class ProductsController extends Controller
      */
     public function show(Products $products)
     {
-        dd( $products->categories());
+        $categories = Categories::find($products->categories());
+
         return view('products.single', ['products' => $products], ['categories_id' => $products->categories()]);
     }
 
