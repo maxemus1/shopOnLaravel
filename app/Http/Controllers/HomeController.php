@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    const  PRODUCTS_PER_PAGE = 12;
+
     /**
      * Create a new controller instance.
      *
@@ -24,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Products::paginate(12);
+        $products = Products::paginate(self::PRODUCTS_PER_PAGE);
         return view('home', ['products' => $products]);
     }
 

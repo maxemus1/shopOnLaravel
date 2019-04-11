@@ -17,6 +17,7 @@ use App\Http\Requests;
 
 class ProductsController extends Controller
 {
+    const  PRODUCTS_PER_PAGE = 12;
 
     /**
      * @param Products $products
@@ -24,9 +25,9 @@ class ProductsController extends Controller
      */
     public function show(Products $products)
     {
-        $categories = Categories::find($products->categories());
+        $categories = $products->categories;
+        return view('products.single', ['products' => $products], ['categories_id' => $categories]);
 
-        return view('products.single', ['products' => $products], ['categories_id' => $products->categories()]);
     }
 
     /**
@@ -36,7 +37,7 @@ class ProductsController extends Controller
     public function search(Request $request)
     {
         $products = Products::where('name', 'LIKE', '%' . $request->get('search') . '%')
-            ->paginate(12);
+            ->paginate(self::PRODUCTS_PER_PAGE);
         return view('home', ['products' => $products]);
     }
 }

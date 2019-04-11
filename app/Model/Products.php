@@ -21,7 +21,7 @@ class Products extends Model
      */
     public function cart()
     {
-        return $this->belongsTo(Cart::class,  'products_id');
+        return $this->belongsTo(Cart::class, 'products_id');
     }
 
     /**
@@ -31,5 +31,4 @@ class Products extends Model
     {
         return $this->hasOne(Categories::class, 'id', 'categories_id');
     }
-
 }

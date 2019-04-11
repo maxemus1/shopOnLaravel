@@ -7,6 +7,8 @@ use App\Model\Products;
 
 class CategoriesController extends Controller
 {
+    const  PRODUCTS_PER_PAGE = 12;
+
     /**
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -14,7 +16,7 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $products = Products::where('categories_id', $id)
-            ->paginate(12);
+            ->paginate(self::PRODUCTS_PER_PAGE);
         return view('home', ['products' => $products]);
     }
 
