@@ -34,7 +34,7 @@ class mailClass extends Mailable
      */
     public function build()
     {
-        return $this->from('sender@example.com')
+        return $this->from('gemsmark@mail.com')
             ->view('mail.mail')
             ->text('mail.mail')
             ->subject('Поступил новый заказ');
