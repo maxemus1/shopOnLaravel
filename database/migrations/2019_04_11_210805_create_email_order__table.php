@@ -13,7 +13,7 @@ class CreateEmailOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('email_order', function (Blueprint $table) {
+        Schema::create('email_orders', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -28,6 +28,6 @@ class CreateEmailOrderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('email_order');
+        Schema::dropIfExists('email_orders');
     }
 }
