@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\News;
-use App\Model\Products;
+use App\Model\Product;
 
 class NewsController extends Controller
 {
@@ -26,7 +26,7 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::find($id);
-        $products = Products::paginate(self::PRODUCTS_PER_PAGE);
+        $products = Product::paginate(self::PRODUCTS_PER_PAGE);
         return view('news.single', ['news' => $news], ['products' => $products]);
     }
 }

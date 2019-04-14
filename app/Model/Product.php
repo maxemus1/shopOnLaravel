@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Products extends Model
+class Product extends Model
 {
     protected $fillable = ['name', 'prise', 'picture', 'description', 'categories_id'];
 
@@ -29,6 +29,6 @@ class Products extends Model
      */
     public function categories()
     {
-        return $this->hasOne(Categories::class, 'id', 'categories_id');
+        return $this->hasOne(Category::class, 'id', 'categories_id');
     }
 }

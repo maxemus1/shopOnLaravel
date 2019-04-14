@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Products;
+use App\Model\Product;
 
 class CategoriesController extends Controller
 {
@@ -15,7 +15,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        $products = Products::where('categories_id', $id)
+        $products = Product::where('categories_id', $id)
             ->paginate(self::PRODUCTS_PER_PAGE);
         return view('home', ['products' => $products]);
     }

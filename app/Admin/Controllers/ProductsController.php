@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use \App\Model\Products;
+use \App\Model\Product;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
@@ -79,14 +79,14 @@ class ProductsController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new Products);
+        $grid = new Grid(new Product);
 
         $grid->id('Id');
         $grid->name('Name');
         $grid->prise('Prise');
         $grid->picture('Picture');
         $grid->description('Description');
-        $grid->categories_id('Categories id');
+        $grid->categories_id('Сategory id');
         $grid->created_at('Created at');
         $grid->updated_at('Updated at');
 
@@ -101,14 +101,14 @@ class ProductsController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(Products::findOrFail($id));
+        $show = new Show(Product::findOrFail($id));
 
         $show->id('Id');
         $show->name('Name');
         $show->prise('Prise');
         $show->picture('Picture');
         $show->description('Description');
-        $show->categories_id('Categories id');
+        $show->categories_id('Сategory id');
         $show->created_at('Created at');
         $show->updated_at('Updated at');
 
@@ -122,13 +122,13 @@ class ProductsController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new Products);
+        $form = new Form(new Product);
 
         $form->text('name', 'Name');
         $form->number('prise', 'Prise');
         $form->image('picture', 'Picture');
         $form->text('description', 'Description');
-        $form->number('categories_id', 'Categories id');
+        $form->number('categories_id', 'Сategory id');
 
         return $form;
     }

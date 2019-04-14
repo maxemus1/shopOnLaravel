@@ -27,10 +27,10 @@ class Cart extends Model
     }
 
     /**
-     * @param Products $products
+     * @param Product $products
      * @return Cart
      */
-    public static function storeProducts(Products $products)
+    public static function storeProducts(Product $products)
     {
         $cart = new Cart;
         $cart->products_id = $products->id;
@@ -45,7 +45,7 @@ class Cart extends Model
      */
     public function products()
     {
-        return $this->hasOne(Products::class, 'id', 'products_id');
+        return $this->hasOne(Product::class, 'id', 'products_id');
     }
 
     /**

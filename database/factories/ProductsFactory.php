@@ -14,8 +14,8 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Model\Products::class, function (Faker $faker) {
-    $categories = \App\Model\Categories::get()->random();
+$factory->define(App\Model\Product::class, function (Faker $faker) {
+    $categories = \App\Model\Сategory::get()->random();
     return [
         'name' => $faker->name,
         'prise' => rand(99,1200),

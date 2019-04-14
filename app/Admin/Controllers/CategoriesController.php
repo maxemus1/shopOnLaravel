@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use \App\Model\Categories;
+use \App\Model\Сategory;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
@@ -79,7 +79,7 @@ class CategoriesController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new Categories);
+        $grid = new Grid(new Сategory);
 
         $grid->id('Id');
         $grid->name('Name');
@@ -98,7 +98,7 @@ class CategoriesController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(Categories::findOrFail($id));
+        $show = new Show(Сategory::findOrFail($id));
 
         $show->id('Id');
         $show->name('Name');
@@ -116,7 +116,7 @@ class CategoriesController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new Categories);
+        $form = new Form(new Сategory);
 
         $form->text('name', 'Name');
         $form->text('description', 'Description');

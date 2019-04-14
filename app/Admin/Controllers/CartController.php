@@ -82,7 +82,7 @@ class CartController extends Controller
         $grid = new Grid(new Cart);
 
         $grid->id('Id');
-        $grid->products_id('Products id');
+        $grid->products_id('Product id');
         $grid->user_id('User id');
         $grid->prise('Prise');
         $grid->created_at('Created at');
@@ -102,7 +102,7 @@ class CartController extends Controller
         $show = new Show(Cart::findOrFail($id));
 
         $show->id('Id');
-        $show->products_id('Products id');
+        $show->products_id('Product id');
         $show->user_id('User id');
         $show->prise('Prise');
         $show->created_at('Created at');
@@ -120,7 +120,7 @@ class CartController extends Controller
     {
         $form = new Form(new Cart);
 
-        $form->number('products_id', 'Products id');
+        $form->number('products_id', 'Product id');
         $form->number('user_id', 'User id');
         $form->number('prise', 'Prise');
 

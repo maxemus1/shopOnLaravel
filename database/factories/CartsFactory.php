@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\Model\Cart::class, function (Faker $faker) {
-    $products = \App\Model\Products::get()->random();
+    $products = \App\Model\Product::get()->random();
     $user = \App\Model\User::get()->random();
     return [
         'products_id' => $products->id,

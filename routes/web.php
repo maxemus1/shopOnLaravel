@@ -14,15 +14,16 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('/products/{products}', 'ProductsController@show')->name('products.single');
+    Route::get('/news', 'NewsController@index')->name('news.index');
+    Route::get('/news/{id}', 'NewsController@show')->name('news.show');
+    Route::get('/categories/{id}', 'CategoriesController@show')->name('categories.show');
+    Route::post('/search', 'ProductsController@search')->name('products.search');
+    Route::get('/about_company', 'HomeController@aboutСompany')->name('about_company');
+});
 
-Route::get('/products/{products}', 'ProductsController@show')->name('products.single');
-Route::get('/news', 'NewsController@index')->name('news.index');
-Route::get('/news/{id}', 'NewsController@show')->name('news.show');
-Route::get('/categories/{id}', 'CategoriesController@show')->name('categories.show');
-Route::post('/search', 'ProductsController@search')->name('products.search');
-Route::get('/about_company', 'HomeController@aboutСompany')->name('about_company');
-
-Route::group(['middleware' => ['auth:api']], function () {
+Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/cart', 'CartController@step')->name('cart.step');
     Route::get('/cart/add/{products}', 'CartController@addToCart')->name('cart.addToCart');

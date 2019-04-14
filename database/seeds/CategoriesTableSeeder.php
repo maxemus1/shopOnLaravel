@@ -14,30 +14,30 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Model\Categories::firstOrCreate(
+        \App\Model\Сategory::firstOrCreate(
             [
                 'name' => 'Action',
                 'description' => 'Экшен игры'
             ]
         );
-        \App\Model\Categories::firstOrCreate(
+        \App\Model\Сategory::firstOrCreate(
 
             [
                 'name' => 'RPG',
                 'description' => 'Рулевые игры'
             ]
         );
-        \App\Model\Categories::firstOrCreate(
+        \App\Model\Сategory::firstOrCreate(
             [
                 'name' => 'Квесты',
                 'description' => 'Квесты'
             ]);
-        \App\Model\Categories::firstOrCreate(
+        \App\Model\Сategory::firstOrCreate(
             [
                 'name' => 'Онлайн-игры',
                 'description' => 'Онлайн-игры'
             ]);
-        \App\Model\Categories::firstOrCreate(
+        \App\Model\Сategory::firstOrCreate(
             [
                 'name' => 'Стратегии',
                 'description' => 'Стратегии'

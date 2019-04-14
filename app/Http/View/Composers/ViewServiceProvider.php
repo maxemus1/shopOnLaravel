@@ -3,9 +3,9 @@
 namespace App\Http\View\Composers;
 
 use App\Model\Cart;
-use App\Model\Categories;
+use App\Model\Category;
 use App\Model\News;
-use App\Model\Products;
+use App\Model\Product;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,10 +20,10 @@ class ViewServiceProvider extends ServiceProvider
     {
 
         View::composer('*', function ($view) {
-            $categories = Categories::all();
-            $randomProductsOne = Products::orderBy(\DB::raw('RAND()'))
+            $categories = Category::all();
+            $randomProductsOne = Product::orderBy(\DB::raw('RAND()'))
                 ->first();
-            $randomProducts = Products::orderBy(\DB::raw('RAND()'))
+            $randomProducts = Product::orderBy(\DB::raw('RAND()'))
                 ->limit(3)
                 ->get();
             $lastNews = News::orderBy('id', 'desc')->limit(3)->get();

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\EmailSend;
 use App\Model\Cart;
-use App\Model\Products;
+use App\Model\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,10 +21,10 @@ class CartController extends Controller
     }
 
     /**
-     * @param Products $products
+     * @param Product $products
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function addToCart(Products $products)
+    public function addToCart(Product $products)
     {
         Cart::storeProducts($products);
         return redirect()->route('cart.step');
