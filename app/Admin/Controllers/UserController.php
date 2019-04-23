@@ -80,7 +80,6 @@ class UserController extends Controller
     protected function grid()
     {
         $grid = new Grid(new User);
-
         $grid->id('Id');
         $grid->name('Name');
         $grid->email('Email');
@@ -89,7 +88,6 @@ class UserController extends Controller
         $grid->remember_token('Remember token');
         $grid->created_at('Created at');
         $grid->updated_at('Updated at');
-
         return $grid;
     }
 
@@ -102,7 +100,6 @@ class UserController extends Controller
     protected function detail($id)
     {
         $show = new Show(User::findOrFail($id));
-
         $show->id('Id');
         $show->name('Name');
         $show->email('Email');
@@ -123,7 +120,6 @@ class UserController extends Controller
     protected function form()
     {
         $form = new Form(new User);
-
         $form->text('name', 'Name');
         $form->email('email', 'Email');
         $form->password('password', 'Password');

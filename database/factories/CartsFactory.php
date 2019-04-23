@@ -21,5 +21,7 @@ $factory->define(App\Model\Cart::class, function (Faker $faker) {
         'products_id' => $products->id,
         'prise' => $products->prise,
         'user_id' => $user->id,
+        'status'=>'done',
+        'date_orders'=>$faker->date()
     ];
 });

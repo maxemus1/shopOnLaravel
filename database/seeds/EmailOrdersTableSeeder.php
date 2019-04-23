@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
-class ProductsTableSeeder extends Seeder
+class EmailOrdersTableSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      *
@@ -12,6 +11,6 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Model\Product::class, 50)->create();
+        factory(App\Model\EmailOrder::class, 5)->create();
     }
 }

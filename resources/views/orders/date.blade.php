@@ -24,36 +24,21 @@
             </div>
             <div class="content-main__container">
                 <div class="cart-product-list">
-                    @foreach($cart as $cartItem)
+                    @foreach($date as $dateOrders=>$orders)
                         <div class="cart-product-list__item">
-                            <div class="cart-product__item__product-photo"><img src="{{$cartItem->products->picture}}"
-                                                                                class="cart-product__item__product-photo__image">
+                            <div class="cart-product__item__product-name">
+                                <div class="cart-product__item__product-name__content">Заказ от</div>
+                            </div>
+                            <div class="cart-product__item__cart-date">
+                                <div class="cart-product__item__cart-date__content">{{$dateOrders}}</div>
                             </div>
                             <div class="cart-product__item__product-name">
                                 <div class="cart-product__item__product-name__content"><a
-                                            href="#">{{$cartItem->products->name}}</a></div>
-                            </div>
-                            <div class="cart-product__item__cart-date">
-                                <div class="cart-product__item__cart-date__content">{{$cartItem->created_at}}</div>
-                            </div>
-                            <div class="cart-product__item__product-price"><span
-                                        class="product-price__value">{{$cartItem->products->prise}} руб.</span></div>
-                            <div
-                                    class="cart-product__item__product-del-icon">
-                                <a href="{{route('cart.destroy',['id'=>$cartItem->id])}}" class="logotype-link">
-                                    <img src="/img/del-icon.png">
-                                </a>
+                                            href="{{route('orders.single',['date'=>$dateOrders])}}">Просмотреть</a></div>
                             </div>
                         </div>
                     @endforeach
                 </div>
-                <div class="cart-product-list__result-item">
-                    <div class="cart-product-list__result-item__text">Итого</div>
-                    <div class="cart-product-list__result-item__value">{{$sum}} рублей</div>
-                </div>
-            </div>
-            <div class="content-footer__container">
-                <div class="btn-buy-wrap"><a href="{{route('mail')}}" class="btn-buy-wrap__btn-link">Оформить заказ</a></div>
             </div>
         </div>
         <div class="content-bottom">

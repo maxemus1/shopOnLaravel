@@ -80,7 +80,6 @@ class CartController extends Controller
     protected function grid()
     {
         $grid = new Grid(new Cart);
-
         $grid->id('Id');
         $grid->products_id('Product id');
         $grid->user_id('User id');
@@ -100,7 +99,6 @@ class CartController extends Controller
     protected function detail($id)
     {
         $show = new Show(Cart::findOrFail($id));
-
         $show->id('Id');
         $show->products_id('Product id');
         $show->user_id('User id');
@@ -119,7 +117,6 @@ class CartController extends Controller
     protected function form()
     {
         $form = new Form(new Cart);
-
         $form->number('products_id', 'Product id');
         $form->number('user_id', 'User id');
         $form->number('prise', 'Prise');

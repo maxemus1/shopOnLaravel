@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 
 class CategoriesTableSeeder extends Seeder
 {
-    //TODO: Переделать миграцию
     /**
      * Seed the application's database.
      *
@@ -14,30 +13,30 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Model\Сategory::firstOrCreate(
+        \App\Model\Category::firstOrCreate(
             [
                 'name' => 'Action',
                 'description' => 'Экшен игры'
             ]
         );
-        \App\Model\Сategory::firstOrCreate(
+        \App\Model\Category::firstOrCreate(
 
             [
                 'name' => 'RPG',
                 'description' => 'Рулевые игры'
             ]
         );
-        \App\Model\Сategory::firstOrCreate(
+        \App\Model\Category::firstOrCreate(
             [
                 'name' => 'Квесты',
                 'description' => 'Квесты'
             ]);
-        \App\Model\Сategory::firstOrCreate(
+        \App\Model\Category::firstOrCreate(
             [
                 'name' => 'Онлайн-игры',
                 'description' => 'Онлайн-игры'
             ]);
-        \App\Model\Сategory::firstOrCreate(
+        \App\Model\Category::firstOrCreate(
             [
                 'name' => 'Стратегии',
                 'description' => 'Стратегии'

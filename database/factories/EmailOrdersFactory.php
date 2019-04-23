@@ -14,13 +14,9 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Model\Product::class, function (Faker $faker) {
-    $categories = \App\Model\Category::get()->random();
+$factory->define(App\Model\EmailOrder::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'prise' => rand(99,1200),
-        'picture' => $faker->imageUrl(),
-        'description' => $faker->text,
-        'categories_id' =>$categories->id,
+        'email' => $faker->email,
     ];
 });
