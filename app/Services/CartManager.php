@@ -9,7 +9,7 @@
 namespace App\Services;
 
 use App\Model\Cart;
-
+use App\Services\CartInfo;
 
 /**
  *
@@ -17,15 +17,22 @@ use App\Model\Cart;
  *
  * @package App\Services
  */
-class EmailOptions
+class CartManager
 {
+
+    public function __construct()
+    {
+        $cartInfo=New CartInfo();
+        $cartInfo->setCart($this->getCartEmail());
+        $cartInfo->setSum($this->getSumCartEmail());
+    }
 
     /**
      * Возращяет карзину пользователя для формирования email
      *
      * @return mixed
      */
-    public static function getCartEmail()
+    public function getCartEmail()
     {
       return  Cart::getUserCart();
     }
@@ -35,9 +42,9 @@ class EmailOptions
      *
      * @return mixed
      */
-    public static function getSumCartEmail()
+    public function getSumCartEmail()
     {
-        return EmailOptions::getCartEmail()->sum('prise');
+        return $this->getCartEmail()->sum('prise');
 
     }
 }

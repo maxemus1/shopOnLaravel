@@ -8,7 +8,6 @@ use App\Model\User;
 use App\Model\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Services\EmailOptions;
 
 class CartController extends Controller
 {
@@ -56,7 +55,6 @@ class CartController extends Controller
     public function dateOrders()
     {
         $date = Cart::getUserDateOrders();
-       // dd($date);
         return view('orders.date', ['date' => $date]);
     }
 
@@ -85,7 +83,8 @@ class CartController extends Controller
      */
     public function email()
     {
-        $this->emailSend->send(EmailOptions::getCartEmail(),EmailOptions::getSumCartEmail(),User::find(Auth::id()));
+        $user = User::find(Auth::id());
+        $this->emailSend->send($user);
         Cart::cartDone();
         return redirect()->route('home');
     }

@@ -12,6 +12,7 @@ use Mail;
 use App\Model\EmailOrder;
 use App\Mail\mailClass;
 use Illuminate\Support\Facades\Auth;
+use App\Services\CartManager;
 
 /**
  *
@@ -21,13 +22,27 @@ use Illuminate\Support\Facades\Auth;
 class EmailSend
 {
     /**
+     * @var \App\Services\CartManager
+     */
+    protected $emailManager;
+
+    /**
+     * EmailSend constructor.
+     * @param \App\Services\CartManager $emailManager
+     */
+    public function __construct(CartManager $emailManager)
+    {
+        $this->emailManager = $emailManager;
+    }
+
+    /**
      *Отправка заказа
      *
      * @return void
      */
-    public function send($cart,$sum,$user)
+    public function send($user)
     {
         $email = EmailOrder::all('email');
-        Mail::to($email)->send(new mailClass($cart, $sum, $user));
+        Mail::to($email)->send(new mailClass($this->emailManager->getCartEmail(), $this->emailManager->getSumCartEmail(), $user));
     }
 }
