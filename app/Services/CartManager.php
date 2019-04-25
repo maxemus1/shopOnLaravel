@@ -19,22 +19,14 @@ use App\Services\CartInfo;
  */
 class CartManager
 {
-
-    public function __construct()
-    {
-        $cartInfo=New CartInfo();
-        $cartInfo->setCart($this->getCartEmail());
-        $cartInfo->setSum($this->getSumCartEmail());
-    }
-
     /**
      * Возращяет карзину пользователя для формирования email
      *
      * @return mixed
      */
-    public function getCartEmail()
+    protected function getCart()
     {
-      return  Cart::getUserCart();
+        return Cart::getUserCart();
     }
 
     /**
@@ -42,9 +34,17 @@ class CartManager
      *
      * @return mixed
      */
-    public function getSumCartEmail()
+    protected function getSumCart()
     {
-        return $this->getCartEmail()->sum('prise');
+        return $this->getCart()->sum('prise');
+    }
+
+    public function getCartInfo()
+    {
+        $cartInfo = new CartInfo();
+        $cartInfo->setCart($this->getCart());
+        $cartInfo->setSum($this->getSumCart());
+        return $cartInfo;
 
     }
 }

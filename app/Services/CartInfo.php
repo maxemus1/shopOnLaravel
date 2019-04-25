@@ -14,20 +14,20 @@ namespace App\Services;
  */
 class CartInfo
 {
-    protected $cart;
-    protected $sum;
+    public $cart;
+    public $sum;
 
-    public function setCart($value)
+    public function setCart($cart)
     {
-        $this->cart= $value;
+        $this->cart= $cart;
     }
 
     /**
      * @return mixed
      */
-    public function setSum($value)
+    public function setSum($sum)
     {
-        $this->sum = $value;
+        $this->sum = $sum;
     }
 
 }

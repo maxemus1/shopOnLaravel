@@ -24,7 +24,7 @@
             </div>
             <div class="content-main__container">
                 <div class="cart-product-list">
-                    @foreach($cart as $cartItem)
+                    @foreach($cartInfo->cart as $cartItem)
                         <div class="cart-product-list__item">
                             <div class="cart-product__item__product-photo"><img src="{{$cartItem->products->picture}}"
                                                                                 class="cart-product__item__product-photo__image">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="cart-product-list__result-item">
                     <div class="cart-product-list__result-item__text">Итого</div>
-                    <div class="cart-product-list__result-item__value">{{$sum}} рублей</div>
+                    <div class="cart-product-list__result-item__value">{{$cartInfo->sum}} рублей</div>
                 </div>
             </div>
             <div class="content-footer__container">

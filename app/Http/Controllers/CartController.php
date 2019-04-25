@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\CartInfo;
+use App\Services\CartManager;
 use App\Services\EmailSend;
 use App\Model\Cart;
 use App\Model\User;
@@ -15,14 +17,16 @@ class CartController extends Controller
      * @var EmailSend
      */
     protected $emailSend;
+    protected $cartManeger;
 
     /**
      * CartController constructor.
      * @param EmailSend $emailSend
      */
-    public function __construct(EmailSend $emailSend)
+    public function __construct(EmailSend $emailSend,CartManager $cartManeger)
     {
         $this->emailSend = $emailSend;
+        $this->cartManeger=$cartManeger;
     }
 
     /**
@@ -32,9 +36,8 @@ class CartController extends Controller
      */
     public function step()
     {
-        $cart = Cart::getUserCart();
-        $sum = $cart->sum('prise');
-        return view('cart.step', ['cart' => $cart, 'sum' => $sum]);
+        $cartInfo =['cartInfo' => $this->cartManeger->getCartInfo()];
+        return view('cart.step', $cartInfo);
     }
 
     /**
