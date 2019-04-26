@@ -14,8 +14,8 @@ namespace App\Services;
  */
 class CartInfo
 {
-    protected $cart;
-    protected $sum;
+    private $cart;
+    private $sum;
 
     /**
      * @return mixed

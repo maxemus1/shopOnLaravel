@@ -7,6 +7,7 @@
  */
 
 namespace App\Services;
+use App\Model\Cart;
 
 /**
  *
@@ -17,18 +18,34 @@ namespace App\Services;
 class CartManager
 {
     /**
+     * @return CartInfo
+     */
+    public function getCreateCart()
+    {
+        return $this->getCartInfo($cart = Cart::getUserCart());
+    }
+
+    /**
+     * @param $date
+     * @return CartInfo
+     */
+    public function getDoneCart($date)
+    {
+        return $this->getCartInfo(Cart::getUserOrders($date));
+    }
+
+    /**
      * Возвращяет карзину и сумму корзины
      *
      * @param $cart
      *
      * @return CartInfo
      */
-    public function getCartInfo($cart)
+    private function getCartInfo($cart)
     {
         $cartInfo = new CartInfo();
         $cartInfo->setCart($cart);
         $cartInfo->setSum($cart->sum('prise'));
         return $cartInfo;
-
     }
 }

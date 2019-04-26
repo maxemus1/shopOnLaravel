@@ -23,10 +23,10 @@ class CartController extends Controller
      * CartController constructor.
      * @param EmailSend $emailSend
      */
-    public function __construct(EmailSend $emailSend, CartManager $cartManeger)
+    public function __construct(EmailSend $emailSend,CartManager $cartManeger)
     {
         $this->emailSend = $emailSend;
-        $this->cartManeger = $cartManeger;
+        $this->cartManeger=$cartManeger;
     }
 
     /**
@@ -36,7 +36,7 @@ class CartController extends Controller
      */
     public function step()
     {
-        return view('cart.step', ['cartInfo' => $this->cartManeger->getCartInfo(Cart::getUserCart())]);
+        return view('cart.step', ['cartInfo' => $this->cartManeger->getCreateCart()]);
     }
 
     /**
@@ -48,7 +48,7 @@ class CartController extends Controller
      */
     public function stepOrders($date)
     {
-        return view('orders.single', ['cartInfo' => $this->cartManeger->getCartInfo(Cart::getUserOrders($date))]);
+        return view('orders.single', ['cartInfo' => $this->cartManeger->getDoneCart($date)]);
     }
 
     /**
@@ -58,8 +58,7 @@ class CartController extends Controller
      */
     public function dateOrders()
     {
-        $date = Cart::getUserDateOrders();
-        return view('orders.date', ['date' => $date]);
+        return view('orders.date', ['date' => Cart::getUserDateOrders()]);
     }
 
     /**
@@ -89,7 +88,7 @@ class CartController extends Controller
     }
 
     /**
-     * Отправка email администратору
+     * Отправляет письмо администратору
      *
      * @return \Illuminate\Http\RedirectResponse
      */

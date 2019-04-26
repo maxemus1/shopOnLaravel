@@ -31,7 +31,7 @@
                             </div>
                             <div class="cart-product__item__product-name">
                                 <div class="cart-product__item__product-name__content"><a
-                                            href="#">{{$cartItem->products->name}}</a></div>
+                                            href="{{route('products.single',['products'=>$cartItem->products])}}">{{$cartItem->products->name}}</a></div>
                             </div>
                             <div class="cart-product__item__cart-date">
                                 <div class="cart-product__item__cart-date__content">{{$cartItem->created_at}}</div>
