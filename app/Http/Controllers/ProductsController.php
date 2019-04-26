@@ -27,9 +27,7 @@ class ProductsController extends Controller
      */
     public function show(Product $products)
     {
-        $categories = $products->categories;
-        return view('products.single', ['products' => $products], ['categories_id' => $categories]);
-
+        return view('products.single', ['products' => $products], ['categories_id' => $products->categories]);
     }
 
     /**

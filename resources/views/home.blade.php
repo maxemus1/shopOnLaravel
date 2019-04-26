@@ -20,7 +20,7 @@
                     @foreach($products as $product)
                         <div class="products-columns__item">
                             <div class="products-columns__item__title-product">
-                                <a href="{{route('products.single',['products'=>$product->products])}}"
+                                <a href="{{route('products.single',['products'=>$product])}}"
                                    class="products-columns__item__title-product__link">{{$product->name}}</a>
                             </div>
                             <div class="products-columns__item__thumbnail">

@@ -22,7 +22,7 @@ class CartManager
      */
     public function getCreateCart()
     {
-        return $this->getCartInfo($cart = Cart::getUserCart());
+        return $this->getCartInfo(Cart::getUserCart());
     }
 
     /**

@@ -23,10 +23,10 @@ class CartController extends Controller
      * CartController constructor.
      * @param EmailSend $emailSend
      */
-    public function __construct(EmailSend $emailSend,CartManager $cartManeger)
+    public function __construct(EmailSend $emailSend, CartManager $cartManeger)
     {
         $this->emailSend = $emailSend;
-        $this->cartManeger=$cartManeger;
+        $this->cartManeger = $cartManeger;
     }
 
     /**
@@ -94,8 +94,7 @@ class CartController extends Controller
      */
     public function email()
     {
-        $user = User::find(Auth::id());
-        $this->emailSend->send($user);
+        $this->emailSend->send(User::find(Auth::id()));
         Cart::cartDone();
         return redirect()->route('home');
     }
