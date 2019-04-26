@@ -8,9 +8,6 @@
 
 namespace App\Services;
 
-use App\Model\Cart;
-use App\Services\CartInfo;
-
 /**
  *
  * Class для задания значений письма
@@ -20,30 +17,17 @@ use App\Services\CartInfo;
 class CartManager
 {
     /**
-     * Возращяет карзину пользователя для формирования email
+     * Возвращяет карзину и сумму корзины
      *
-     * @return mixed
-     */
-    protected function getCart()
-    {
-        return Cart::getUserCart();
-    }
-
-    /**
-     * Возращяет сумму товара в корзине
+     * @param $cart
      *
-     * @return mixed
+     * @return CartInfo
      */
-    protected function getSumCart()
-    {
-        return $this->getCart()->sum('prise');
-    }
-
-    public function getCartInfo()
+    public function getCartInfo($cart)
     {
         $cartInfo = new CartInfo();
-        $cartInfo->setCart($this->getCart());
-        $cartInfo->setSum($this->getSumCart());
+        $cartInfo->setCart($cart);
+        $cartInfo->setSum($cart->sum('prise'));
         return $cartInfo;
 
     }

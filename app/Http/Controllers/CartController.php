@@ -23,10 +23,10 @@ class CartController extends Controller
      * CartController constructor.
      * @param EmailSend $emailSend
      */
-    public function __construct(EmailSend $emailSend,CartManager $cartManeger)
+    public function __construct(EmailSend $emailSend, CartManager $cartManeger)
     {
         $this->emailSend = $emailSend;
-        $this->cartManeger=$cartManeger;
+        $this->cartManeger = $cartManeger;
     }
 
     /**
@@ -36,23 +36,24 @@ class CartController extends Controller
      */
     public function step()
     {
-        $cartInfo =['cartInfo' => $this->cartManeger->getCartInfo()];
-        return view('cart.step', $cartInfo);
+        return view('cart.step', ['cartInfo' => $this->cartManeger->getCartInfo(Cart::getUserCart())]);
     }
 
     /**
+     * Возращяет заказ согласно дате
+     *
      * @param $date
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function stepOrders($date)
     {
-        $cart = Cart::getUserOrders($date);
-        $sum = $cart->sum('prise');
-        return view('orders.single', ['cart' => $cart, 'sum' => $sum]);
+        return view('orders.single', ['cartInfo' => $this->cartManeger->getCartInfo(Cart::getUserOrders($date))]);
     }
 
     /**
+     * Возращяет дату
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function dateOrders()
@@ -62,7 +63,10 @@ class CartController extends Controller
     }
 
     /**
+     * Запись карзины в бд
+     *
      * @param Product $products
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function addToCart(Product $products)
@@ -72,7 +76,10 @@ class CartController extends Controller
     }
 
     /**
+     * Удаляет записть из корзины
+     *
      * @param $id
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
@@ -82,6 +89,8 @@ class CartController extends Controller
     }
 
     /**
+     * Отправка email администратору
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function email()

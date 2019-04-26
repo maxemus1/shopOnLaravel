@@ -10,23 +10,26 @@ class NewsController extends Controller
 {
     const  PRODUCTS_PER_PAGE = 3;
     const  NEWS_PER_PAGE = 12;
+
     /**
+     * Показывает новости
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $news = News::paginate(self::NEWS_PER_PAGE);
-        return view('news.home', ['news' => $news]);
+        return view('news.home', ['news' => News::paginate(self::NEWS_PER_PAGE)]);
     }
 
     /**
+     * Показывает конкретную новость
+     *
      * @param $id
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
-        $news = News::find($id);
-        $products = Product::paginate(self::PRODUCTS_PER_PAGE);
-        return view('news.single', ['news' => $news], ['products' => $products]);
+        return view('news.single', ['news' => News::find($id)], ['products' => Product::paginate(self::PRODUCTS_PER_PAGE)]);
     }
 }

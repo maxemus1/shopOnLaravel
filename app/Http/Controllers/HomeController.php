@@ -10,17 +10,7 @@ class HomeController extends Controller
     const  PRODUCTS_PER_PAGE = 12;
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-      //  $this->middleware('auth:api');
-    }
-
-    /**
-     * Show the application dashboard.
+     * Показывает товар на главной странице
      *
      * @return \Illuminate\Http\Response
      */

@@ -39,7 +39,7 @@ class Cart extends Model
     {
         return self::where('user_id', Auth::id())
             ->where('status', Cart::DONE)
-            ->where('date_orders',$date)
+            ->where('date_orders', $date)
             ->get();
     }
 
@@ -84,7 +84,7 @@ class Cart extends Model
             ->where('status', 'create')
             ->update(
                 ['status' => Cart::DONE,
-                'date_orders' => $dateOrders->toDateString()
+                    'date_orders' => $dateOrders->toDateString()
                 ]);
         return $cart;
     }

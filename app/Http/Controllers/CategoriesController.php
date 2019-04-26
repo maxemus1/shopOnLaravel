@@ -10,6 +10,8 @@ class CategoriesController extends Controller
     const  PRODUCTS_PER_PAGE = 12;
 
     /**
+     * Показать товар согласно категории
+     *
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

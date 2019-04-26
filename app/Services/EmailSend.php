@@ -10,6 +10,7 @@ namespace App\Services;
 
 use Mail;
 use App\Model\EmailOrder;
+use App\Model\Cart;
 use App\Mail\mailClass;
 use Illuminate\Support\Facades\Auth;
 use App\Services\CartManager;
@@ -43,6 +44,6 @@ class EmailSend
     public function send($user)
     {
         $email = EmailOrder::all('email');
-        Mail::to($email)->send(new mailClass($this->emailManager->getCartEmail(), $this->emailManager->getSumCartEmail(), $user));
+        Mail::to($email)->send(new mailClass( $this->emailManager->getCart(), $this->emailManager->getSum(), $user));
     }
 }

@@ -20,6 +20,8 @@ class ProductsController extends Controller
     const  PRODUCTS_PER_PAGE = 12;
 
     /**
+     * Показывает главную страницу продукта
+     *
      * @param Product $products
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -31,6 +33,8 @@ class ProductsController extends Controller
     }
 
     /**
+     * Поиск по продукции
+     *
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
