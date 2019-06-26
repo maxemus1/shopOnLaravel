@@ -40,7 +40,7 @@ class Cart extends Model
         return self::where('user_id', Auth::id())
             ->where('status', Cart::DONE)
             ->where('date_orders', $date)
-            ->get();
+                ->get();
     }
 
     public static function getUserDateOrders()

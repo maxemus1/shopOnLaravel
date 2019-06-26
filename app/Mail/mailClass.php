@@ -11,22 +11,6 @@ class mailClass extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $cart;
-    public $sum;
-    public $user;
-
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($cart, $sum, $user)
-    {
-        $this->cart = $cart;
-        $this->sum = $sum;
-        $this->user = $user;
-    }
-
     /**
      * Build the message.
      *
